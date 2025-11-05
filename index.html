@@ -1,11 +1,129 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
-    
+    <title>Avis Car Rental Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> hello world </h1>
+    <header>
+        <div class="video-container">
+            <video autoplay muted loop id="headerVideo">
+                <source src="assets/35266-407130741_small.mp4" type="video/mp4">
+               
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1 class="logo"><span class="avis-red">AVIS</span> CAR RENTAL</h1>
+                    <p class="tagline">We Try Harder</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Search & Filter Section -->
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by brand, model, or type...">
+                <button onclick="searchCars()">Search</button>
+            </div>
+            
+            <div class="filters">
+                <select id="typeFilter" onchange="filterCars()">
+           <option value="">All Vehicle Types</option>
+           <option value="Economy">Economy</option>
+           <option value="Compact">Compact</option>
+           <option value="MPV">MPV</optio>
+           <option value="SUV">SUV</option>
+           <option value="Van">Van</option>
+           <option value="Compact SUV">Compact SUV</option>
+           </select>
+                
+                <select id="brandFilter" onchange="filterCars()">
+            <option value="">All Brands</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Ford">Ford</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="MG">MG</option>
+            <option value="Suzuki">Suzuki</option>
+            <option value="Isuzu">Isuzu</option>
+           </select>
+                
+                <select id="priceFilter" onchange="filterCars()">
+            <option value="">All Price Ranges</option>
+            <option value="0-2000">₱0 - ₱2,000/day</option>
+            <option value="2001-3000">₱2,001 - ₱3,000/day</option>
+            <option value="3001-4000">₱3,001 - ₱4,000/day</option>
+            <option value="4001-5000">₱4,001 - ₱5,000/day</option>
+            <option value="5001-9999">₱5,001+/day</option>
+                </select>
+                
+                <select id="sortSelect" onchange="sortCars()">
+                    <option value="default">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="year-new">Year: Newest First</option>
+                    <option value="year-old">Year: Oldest First</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Cars Display Section -->
+        <section class="cars-grid" id="carsGrid">
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison" id="comparisonSection">
+            <h2>Vehicle Comparison</h2>
+            <div class="comparison-cars" id="comparisonCars"></div>
+            <button class="btn" onclick="clearComparison()">Clear Comparison</button>
+        </section>
+    </main>
+
+    <!-- Car Details Modal -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AVIS CAR RENTAL</h3>
+                    <p>We Try Harder to provide the best rental experience with quality vehicles and exceptional customer service.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#">Vehicle Types</a>
+                    <a href="#">Locations</a>
+                    <a href="#">Special Offers</a>
+                    <a href="#">Business Rental</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Reservations: 1-800-352-7900</p>
+                    <p>Customer Service: 1-800-333-7287</p>
+                    <p>Email: customer.service@avis.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Avis Car Rental. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="cars-data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
